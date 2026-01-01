@@ -1,4 +1,4 @@
-import { NavigationList } from '@/src/widgets/Navigation/model/types/navigationList';
+import { NavigationList } from '@/widgets/Navigation/model/types/navigationList';
 import { Handshake, InfoIcon } from 'lucide-react';
 
 export const getNavigationList = (): NavigationList[] => {
