@@ -1,0 +1,27 @@
+STAGED_FILES=$(git diff --cached --name-only)
+
+RUN_CLIENT=false
+RUN_SERVER=false
+
+for FILE in $STAGED_FILES; do
+  case $FILE in
+    client/*)
+      RUN_CLIENT=true
+      ;;
+    server/*)
+      RUN_SERVER=true
+      ;;
+  esac
+done
+
+if [ "$RUN_CLIENT" = true ]; then
+  echo "Pre-commit client..."
+  echo "Linting client..."
+  cd client && npm run lint:ts --fix && npm run format
+
+  cd - > /dev/null
+fi
+
+if [ "$RUN_SERVER" = true ]; then
+  echo "Pre-commit server..."
+fi
