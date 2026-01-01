@@ -1,5 +1,5 @@
-import { NavigationItem } from '@/widgets/Navigation/ui/NavigationItem';
-import { getNavigationList } from '@/widgets/Navigation/model/selectors/getNavigationList';
+import { getNavigationList } from '../model/selectors/getNavigationList';
+import { NavigationItem } from './NavigationItem';
 
 export const NavigationList = () => {
   const list = getNavigationList();

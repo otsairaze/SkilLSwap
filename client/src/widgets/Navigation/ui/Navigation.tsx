@@ -1,17 +1,11 @@
 'use client';
 
 import { memo } from 'react';
-import { NavigationList } from '@/widgets/Navigation/ui/NavigationList';
-import { NavigationButton } from '@/widgets/Navigation/ui/NavigationButton';
-import { ThemeSwitcher } from '@/features/ThemeSwitcher/ui/ThemeSwitcher';
+import { ThemeSwitcher } from '@/features/ThemeSwitcher';
+import { NavigationList } from './NavigationList';
+import { NavigationButton } from './NavigationButton';
 
-interface NavigationProps {
-  onOpen?: () => void;
-}
-
-export const Navigation = memo((props: NavigationProps) => {
-  const {} = props;
-
+export const Navigation = memo(() => {
   return (
     <div className={'flex items-center justify-between'}>
       <div>
