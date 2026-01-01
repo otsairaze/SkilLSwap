@@ -1,7 +1,7 @@
+import { MoonIcon } from 'lucide-react';
 import { Label } from '@/shared/ui/label';
 import { useThemeStore } from '@/shared/store/useThemeStore';
 import { Switch } from '@/shared/ui/switch';
-import { MoonIcon } from 'lucide-react';
 
 export const ThemeSwitcher = () => {
   const { isDark, setDark } = useThemeStore();

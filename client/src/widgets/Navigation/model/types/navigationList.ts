@@ -1,6 +1,6 @@
-import { LucideIcon } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 
-export interface NavigationList {
+export interface NavigationListTypes {
   title: string;
   icon: LucideIcon;
   href?: string;

@@ -1,6 +1,6 @@
+import { Container } from '@/shared/ui/container';
 import type { Metadata } from 'next';
 import './styles/globals.css';
-import { Container } from '@/shared/ui/container';
 
 export const metadata: Metadata = {
   title: 'SkillSwap | Next App',
