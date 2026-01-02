@@ -1,5 +1,5 @@
 message="$(cat $1)"
-requiredPattern="^(add|cut|fix|bump|make|start|stop|refactor|reformat|optimise|document|merge|chore|infra): .*$"
+requiredPattern="^(add|cut|fix|refactor|optimise|merge|chore|infra|feat): .*$"
 
 if ! [[ $message =~ $requiredPattern ]];
 then
