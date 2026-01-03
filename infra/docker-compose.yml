@@ -16,6 +16,20 @@ services:
       - skillswap-network
 
 
+  traefik:
+    image: traefik:v3.6
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--entrypoints.web.address=:80"
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - skillswap-network
+
   server:
     build:
       context: ../server
@@ -23,14 +37,15 @@ services:
     container_name: server
     env_file:
       - .env
-    ports:
-      - "3001:3000"
     depends_on:
       postgres:
         condition: service_healthy
     networks:
       - skillswap-network
-
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.server.rule=Host(`api.skillswap.local`)"
+      - "traefik.http.services.server.loadbalancer.server.port=3000"
 
 networks:
   skillswap-network:
