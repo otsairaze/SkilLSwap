@@ -1,0 +1,40 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: postgres
+    restart: always
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    networks:
+      - skillswap-network
+
+
+  server:
+    build:
+      context: ../server
+      dockerfile: Dockerfile
+    container_name: server
+    env_file:
+      - .env
+    ports:
+      - "3001:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - skillswap-network
+
+
+networks:
+  skillswap-network:
+    driver: bridge
+
+volumes:
+  postgres:
