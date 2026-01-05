@@ -45,41 +45,34 @@
 }
 
 :root {
-  /* ===== ТЁМНАЯ ТЕМА ===== */
+
   --radius: 0.625rem;
   --background: #0e0f16;
   --foreground: #e2e8f0;
 
-  /* Карточки и поверхности */
   --card: #1a1b23;
   --card-foreground: #e2e8f0;
   --popover: #1a1b23;
   --popover-foreground: #e2e8f0;
 
-  /* Основной акцент */
   --primary: #fff;
   --primary-foreground: #0a0a0a;
 
-  /* Вторичный акцент */
   --secondary: #3b82f6;
   --secondary-foreground: #ffffff;
 
-  /* Нейтральные цвета */
   --muted: #3b3f5d;
   --muted-foreground: #94a3b8;
   --accent: #8c8cdb;
   --accent-foreground: #e2e8f0;
 
-  /* Опасные действия */
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
 
-  /* Границы и инпуты */
   --border: #ffffff;
-  --input: #2d3748;
-  --ring: #cd0303;
+  --input: #cccccc;
+  --ring: #ffffff;
 
-  /* Графики */
   --chart-1: #8b5cf6;
   --chart-2: #3b82f6;
   --chart-3: #10b981;
@@ -97,26 +90,25 @@
 }
 
 .light {
-  /* ===== СВЕТЛАЯ ТЕМА ===== */
-  --background: #f8fafc; /* Очень светлый серо-голубой */
-  --foreground: #0f172a; /* Тёмно-синий текст */
 
-  --card: #ffffff; /* Чисто белый */
+  --background: #f8fafc;
+  --foreground: #0f172a;
+
+  --card: #ffffff;
   --card-foreground: #0f172a;
   --popover: #ffffff;
   --popover-foreground: #0f172a;
 
-  /* Акценты остаются те же (для консистентности бренда) */
-  --primary: #8b5cf6; /* Тот же фиолетовый */
+  --primary: #8b5cf6;
   --primary-foreground: #ffffff;
 
-  --secondary: #3b82f6; /* Тот же синий */
+  --secondary: #3b82f6;
   --secondary-foreground: #ffffff;
 
-  /* Нейтральные светлее */
-  --muted: #f1f5f9; /* Очень светлый серый */
+
+  --muted: #f1f5f9;
   --muted-foreground: #64748b; /* Серый текст */
-  --accent: #f1f5f9; /* Ховер состояния */
+  --accent: #f1f5f9;
   --accent-foreground: #0f172a;
 
   --destructive: #ef4444;
