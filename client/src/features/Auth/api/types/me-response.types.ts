@@ -1,8 +1,4 @@
-export type User = {
-  id: number;
-  login: string;
-  email: string;
-};
+import type { User } from '../types/user.types';
 
 export type MeResponse = {
   me: User;

@@ -1,13 +1,14 @@
 import { gql } from '@apollo/client';
 import { USER_FRAGMENT } from '../fragments/user.fragment';
 
-export const GET_ME = gql`
+export const SIGN_UP_MUTATION = gql`
   ${USER_FRAGMENT}
-  query Me {
-    me {
+  mutation SignUp($input: SignupInput!) {
+    signUp(signUpInput: $input) {
       user {
         ...UserFields
       }
+      accessToken
     }
   }
 `;

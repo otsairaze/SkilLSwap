@@ -2,22 +2,33 @@
 
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useSignIn } from '../../lib/hooks/useSignIn';
 import { LoginSchema } from '../../schemas/loginSchema';
 import type { LoginFormValues } from '../../types/LoginFormValues';
 
 export const useLoginForm = () => {
+  const { signIn, loading, error } = useSignIn();
+
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(LoginSchema),
     mode: 'onSubmit',
     defaultValues: {
-      email: '',
+      login: '',
       password: '',
     },
   });
 
-  const onSubmit = (values: LoginFormValues) => {
-    console.log(values);
+  const onSubmit = async (values: LoginFormValues) => {
+    try {
+      const result = await signIn(values);
+
+      if (result) {
+        console.log(result, 'Успешный вход');
+      }
+    } catch (error) {
+      console.log(error, 'Ошибка входа');
+    }
   };
 
-  return { onSubmit, form };
+  return { onSubmit, form, loading, error };
 };

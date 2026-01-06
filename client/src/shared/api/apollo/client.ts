@@ -6,6 +6,7 @@ export const { getClient } = registerApolloClient(() => {
     cache: new InMemoryCache(),
     link: new HttpLink({
       uri: process.env.NEXT_PUBLIC_GRAPHQL_URI,
+      credentials: 'include',
     }),
   });
 });

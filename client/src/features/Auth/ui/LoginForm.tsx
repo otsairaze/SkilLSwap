@@ -13,7 +13,7 @@ interface LoginFormProps {
 export const LoginForm = memo((props: LoginFormProps) => {
   const { open, setOpen } = props;
 
-  const { form, onSubmit } = useLoginForm();
+  const { form, onSubmit, loading, error } = useLoginForm();
 
   const handleClose = () => {
     form.reset();
@@ -27,48 +27,52 @@ export const LoginForm = memo((props: LoginFormProps) => {
           <DialogTitle>Login to SkillSwap</DialogTitle>
         </DialogHeader>
 
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6 py-4'>
-            <FormField
-              control={form.control}
-              name='email'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email</FormLabel>
-                  <FormControl>
-                    <Input type='email' placeholder='you@example.com' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+        {loading ? (
+          <div>loading...</div>
+        ) : (
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6 py-4'>
+              <FormField
+                control={form.control}
+                name='login'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Login</FormLabel>
+                    <FormControl>
+                      <Input type='login' placeholder='your login' {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
-            <FormField
-              control={form.control}
-              name='password'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Password</FormLabel>
-                  <FormControl>
-                    <Input type='password' placeholder='••••••••' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+              <FormField
+                control={form.control}
+                name='password'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Password</FormLabel>
+                    <FormControl>
+                      <Input type='password' placeholder='••••••••' {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
-            <div className='flex justify-end gap-2 pt-4'>
-              <DialogClose asChild>
-                <Button type='button' variant='outline' onClick={handleClose}>
-                  Cancel
+              <div className='flex justify-end gap-2 pt-4'>
+                <DialogClose asChild>
+                  <Button type='button' variant='outline' onClick={handleClose}>
+                    Cancel
+                  </Button>
+                </DialogClose>
+                <Button type='submit' disabled={form.formState.isSubmitting}>
+                  {form.formState.isSubmitting ? 'Logging in...' : 'Login'}
                 </Button>
-              </DialogClose>
-              <Button type='submit' disabled={form.formState.isSubmitting}>
-                {form.formState.isSubmitting ? 'Logging in...' : 'Login'}
-              </Button>
-            </div>
-          </form>
-        </Form>
+              </div>
+            </form>
+          </Form>
+        )}
       </DialogContent>
     </Dialog>
   );
