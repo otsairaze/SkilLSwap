@@ -1,3 +1,9 @@
+import { ProfileDashboard } from '@/widgets/ProfileDashboard';
+
 export const ProfilePage = () => {
-  return <></>;
+  return (
+    <>
+      <ProfileDashboard />
+    </>
+  );
 };
