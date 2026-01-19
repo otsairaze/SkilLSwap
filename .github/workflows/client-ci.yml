@@ -50,6 +50,6 @@ jobs:
         with:
           name: 'client build'
           path: './client/dist'
-          retention-days: 7
+          retention-days: 7ы
 
 
