@@ -7,7 +7,7 @@ import { join } from 'path';
 import { UserModule } from '@modules/user';
 import { AuthModule } from '@modules/auth';
 import { JwtModule, JwtService } from '@nestjs/jwt';
-import { SKillModule } from '@modules/skill/skill.module';
+import { SkillModule } from '@modules/skill/skill.module';
 
 @Module({
   imports: [
@@ -21,7 +21,7 @@ import { SKillModule } from '@modules/skill/skill.module';
     JwtModule.register({}),
     AuthModule,
     UserModule,
-    SKillModule,
+    SkillModule,
   ],
   providers: [JwtService],
 })

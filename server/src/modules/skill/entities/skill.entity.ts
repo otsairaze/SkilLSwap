@@ -1,5 +1,5 @@
 import { Field, ObjectType } from '@nestjs/graphql';
-import { SkillStatus } from '../../../../prisma/generated/prisma/enums';
+import { SkillStatus } from '../enums/skill-status.enum';
 
 @ObjectType()
 export class Skill {

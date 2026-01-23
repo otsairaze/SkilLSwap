@@ -27,6 +27,7 @@ export class JwtAuthGuard extends AuthGuard('jwt') {
     const res = GqlExecutionContext.create(context).getContext().res;
 
     const access = req.cookies['accessToken'];
+
     const refresh = req.cookies['refreshToken'];
 
     if (access) {

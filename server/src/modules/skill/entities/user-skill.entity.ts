@@ -1,5 +1,5 @@
 import { Field, ObjectType } from '@nestjs/graphql';
-import { SkillLevel } from '../../../../prisma/generated/prisma/enums';
+import { SkillLevel } from '../enums/skill-level.enum';
 import { Skill } from '@modules/skill/entities/skill.entity';
 
 @ObjectType()
