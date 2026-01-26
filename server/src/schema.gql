@@ -6,16 +6,24 @@ type AuthResponse {
   user: User!
 }
 
+input CreateSkillInput {
+  name: String!
+}
+
 type MeResponse {
   user: User!
 }
 
 type Mutation {
+  createSkill(input: CreateSkillInput!): Skill!
   signIn(signInInput: SignInInput!): AuthResponse!
   signUp(signUpInput: SignupInput!): AuthResponse!
 }
 
 type Query {
+  getAllSkills: [Skill!]!
+  getFindSkill(query: String!): [Skill!]!
+  getSkillByUserId(id: Int!): [Skill!]!
   me: MeResponse!
 }
 
@@ -28,6 +36,18 @@ input SignupInput {
   email: String!
   login: String!
   password: String!
+}
+
+type Skill {
+  id: Float!
+  name: String!
+  status: SkillStatus!
+}
+
+enum SkillStatus {
+  ERROR
+  PENDING
+  SUCCESS
 }
 
 type User {
